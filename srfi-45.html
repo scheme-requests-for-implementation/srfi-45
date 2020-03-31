@@ -45,8 +45,7 @@ require unbounded memory.
 <p>
 Although varous modifications of <code>delay</code> and
 <code>force</code> had been proposed to resolve this problem (see e.g., the
-<a href=
-https://srfi.schemers.org/srfi-40/mail-archive/maillist.html>
+<a href="https://srfi-email.schemers.org/srfi-40/">
 SRFI-40 discussion list
 </a>)
 they all fail some of the benchmarks provided below.  To our knowledge,
@@ -92,7 +91,7 @@ straightforward recipe for transforming arbitrary lazy data structures and algor
 into a strict language using <code>delay</code> and <code>force</code>. 
 
 <p>
-However, it is known (see e.g. the <a href="../srfi-40/mail-archive/maillist.html">SRFI-40 discussion list</a>) that this 
+However, it is known (see e.g. the <a href="https://srfi-email.schemers.org/srfi-40/">SRFI-40 discussion list</a>) that this 
 transformation can lead to programs that suffer from unbounded space 
 consumption, even if the original lazy algorithm was properly tail-recursive.
 
