@@ -1,24 +1,20 @@
-
 <!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML//EN">
-<html>
+<html lang="en">
   <head>
     <title>SRFI 45: Primitives for expressing iterative lazy algorithms</title>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <link rel="stylesheet" href="/srfi.css" type="text/css" />
+    <link rel="stylesheet" href="https://srfi.schemers.org/srfi.css" type="text/css" />
+    <link href="/favicon.png" rel="icon" sizes="192x192" type="image/png">
   </head>
 
   <body>
 
-    <H1>Title</H1>
+    <h1><a href="https://srfi.schemers.org/"><img class="srfi-logo" src="https://srfi.schemers.org/srfi-logo.svg" alt="SRFI surfboard logo" /></a>45: Primitives for Expressing Iterative Lazy Algorithms</h1>
 
-    Primitives for Expressing Iterative Lazy Algorithms
-
-    <H1>Author</H1>
+    <p>by Andr&eacute; van Tonder</p>
     
-    Andr&eacute; van Tonder
-    
-    <H1>Status</H1>
+    <h2>Status</h2>
 
     <p>This SRFI is currently in <em>final</em> status.  Here is <a href="https://srfi.schemers.org/srfi-process.html">an explanation</a> of each status that a SRFI can hold.  To provide input on this SRFI, please send email to <code><a href="mailto:srfi+minus+45  +at+srfi+dotschemers+dot+org">srfi-45  @<span class="antispam">nospam</span>srfi.schemers.org</a></code>.  To subscribe to the list, follow <a href="https://srfi.schemers.org/srfi-list-subscribe.html">these instructions</a>.  You can access previous messages via the mailing list <a href="https://srfi-email.schemers.org/srfi-45  ">archive</a>.</p>
 <ul>
@@ -30,7 +26,7 @@
       <li>Bug fix: 2004-08-04</li>
     </ul>
     
-    <H1>Abstract</H1>
+    <h2>Abstract</h2>
 
 Lazy evaluation is traditionally simulated in Scheme using 
 <code>delay</code> and <code>force</code>.  However, these 
@@ -83,7 +79,7 @@ replaced by the SRFI-45 definitions of delay and force.
 
 
 
-    <H1>Rationale</H1>
+    <h2>Rationale</h2>
 
 Wadler et al. in the paper 
 <em>How to add laziness to a strict language without even being odd</em> [Wad98], provide a 
@@ -95,7 +91,7 @@ However, it is known (see e.g. the <a href="https://srfi-email.schemers.org/srfi
 transformation can lead to programs that suffer from unbounded space 
 consumption, even if the original lazy algorithm was properly tail-recursive.
 
-<H2>Example</H2>
+<h3>Example</h3>
 
 Consider the following procedure, written in a hypothetical lazy
 language with Scheme syntax:
@@ -156,7 +152,7 @@ first element of the result stream.
 </pre>
 
 
-<h2>Why the space leak occurs</h2>
+<h3>Why the space leak occurs</h3>
 
 The problem occurring in the above
 <code>stream-filter</code> example can already 
@@ -208,7 +204,7 @@ We see that an ever growing sequence of pending promises builds up until the hea
 is exhausted.
 
 
-<h2>Why the above is not call-by-need</h2>
+<h3>Why the above is not call-by-need</h3>
 
 Expressing the above algorithm in terms of {<code>delay</code>, <code>force</code>}
 in fact does not correctly capture common notions of 
@@ -235,7 +231,7 @@ sequence of unfulfilled promises representing (unnecessary) future
 copy operations.   
 
 
-<h2>The solution</h2>
+<h3>The solution</h3>
  
 The accumulation of unnecessary promises in the above examples is a consequence
 of suspensions being forced in increasingly nested contexts.  In order 
@@ -319,7 +315,7 @@ suspension representing a control point to be called upon the next iteration
 of the dispatcher loop in <code>force</code>.  For more details, see [FMRW].
 
 
-    <H1>Specification</H1>
+    <h2>Specification</h2>
 
 The following macros should be provided.  The semantics, which is informally
 described here, should conform to that of the reference implementation below:
@@ -402,7 +398,7 @@ the extension is conservative in the sense that the semantics of the subset {<co
 isolation (i.e., as long as the program does not use <code>lazy</code>)
 agrees with that in R5RS.  
 
-    <H1>Correct usage</H1>
+    <h2>Correct usage</h2>
 
 We now provide a general
 recipe for using the primitives  
@@ -461,7 +457,7 @@ More examples are included in the reference implementation below.
  
 
 
-    <H1>Implementation</H1>
+    <h2>Implementation</h2>
 
 The reference implementation uses the macro 
 mechanism of R5RS.
@@ -478,9 +474,9 @@ is bounded.
 Passing the tests does not mean a correct implementation.
 
 
-<h2>
+<h3>
 Reference implementation
-</h2>
+</h3>
 
 <pre>
 ;=========================================================================
@@ -725,7 +721,7 @@ Reference implementation
 
 </pre>
 
-    <H1>References</H1>
+    <h2>References</h2>
 
 [Wad98]
 Philip Wadler, Walid Taha, and David MacQueen. 
@@ -743,7 +739,7 @@ Rapport technique 1078, département d'informatique et r.o., Université de Mont
 
 
 
-    <H1>Copyright</H1>
+    <h2>Copyright</h2>
 
 <p>Copyright (C) Andr&eacute; van Tonder (2003). All Rights Reserved.</p>
 
